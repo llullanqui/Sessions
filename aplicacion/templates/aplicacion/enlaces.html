@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE=html>
+<html>
+	<head>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/index.css' %}">
+	</head>
+	<body>
+		{% if request.user.is_authenticated %}
+			<p>usuario loggeado: {{request.user.username}}</p>
+			<a href="/pantalla2/" id="enlace1">Choose page 1</a>
+			<h1>ESTA ES LA PÁGINA 2</h1>
+			<h3>Hora Login: {{hora}}</h3>
+		{% else %}
+			<h1>USTED NO HA INGRESADO</h1>
+		{% endif %}
+	</body>
+</html>

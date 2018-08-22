@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!DOCTYPE=html>
+<html>
+	<head>
+		<link rel="stylesheet" type='text/css' href="{% static 'css/index.css' %}">
+		<script type="text/javascript" src="{% static 'js/tabladeusuarios.js' %}"></script>
+	</head>
+	<body>
+		{% if not request.user.is_authenticated %}
+			<h1>Inicio Sesión</h1>
+			<form method="POST" >
+				{% csrf_token %}
+				<input type="text" name="username"><br>
+				<input type="text" name="password"><br>
+				<button type="submit" name="botónInicioSesión" id="botónInicioSesión">Sign in</button>
+			</form>
+			<p>{{mensaje}}</p>
+		{% else %}
+			<p>Usted ya ha iniciado sesión</p>
+			<a href="salirSesion">Cerrar Sesión</a>
+		{%endif%}
+	</body>
+</html>
